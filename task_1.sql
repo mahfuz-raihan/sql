@@ -1,9 +1,3 @@
-# sql
-## Assignment
-For showcase an assignment
-
-### Task 1
-```sql
 create table Student_Table(
 	Id int not null ,
 	Name varchar(255) not null,
@@ -28,8 +22,3 @@ left join Student_table
 on Class_Table.Id = Student_Table.Class_id
 group by Class;
 
-```
-### Task 2
-```language
-=IF(C2>89,"A+",IF(C2>74,"A",IF(C2>60,"A-",IF(C2<50,"B",IF(C2>40,"C",IF(C2>33,"D",IF(C2<33,"F")))))))
-```
