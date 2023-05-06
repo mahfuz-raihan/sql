@@ -18,7 +18,7 @@ create table Class_Table(
 );
 
 
-/*insert into Class_Table values (301, 'Database');*/
+-- insert into Class_Table values (301, 'Database');
 
 
 
@@ -30,6 +30,6 @@ group by Class;
 
 ```
 ### Task 2
-```language
+```sql
 =IF(C2>89,"A+",IF(C2>74,"A",IF(C2>60,"A-",IF(C2<50,"B",IF(C2>40,"C",IF(C2>33,"D",IF(C2<33,"F")))))))
 ```
