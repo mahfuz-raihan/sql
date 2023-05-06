@@ -1,8 +1,5 @@
 # sql
-## Assignment
-For showcase an assignment
 
-### Task 1
 ```sql
 create table Student_Table(
 	Id int not null ,
@@ -29,7 +26,54 @@ on Class_Table.Id = Student_Table.Class_id
 group by Class;
 
 ```
-### Task 2
+### SQL AND, OR and NOT Operators
+#### AND Syntax
 ```sql
-=IF(C2>89,"A+",IF(C2>74,"A",IF(C2>60,"A-",IF(C2<50,"B",IF(C2>40,"C",IF(C2>33,"D",IF(C2<33,"F")))))))
+select column1, column2,...
+from table_name
+where condition1 AND condition2 AND condition3;
+```
+Example:
+```sql
+select * from Customers
+where Country='Germany' and City='Berlin';
+```
+#### OR systax
+```sql
+select column1, column2,...
+from table_name
+where condition1 OR condition2 OR condition3;
+```
+Example:
+```sql
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+```
+#### NOT systax
+```sql
+select column1, column2,...
+from table_name
+where NOT condition1;
+```
+Example:
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Sweden';
+```
+Combination of these systax
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+### The SQL ORDER BY Keyword
+
+```sql
+select column1, column2,...
+from table_name
+order by column1, column2... ASC|DESC;
+```
+Example:
+```sql
+SELECT * FROM Customers
+ORDER BY Country;
 ```
