@@ -92,3 +92,41 @@ where column like pattern;
 -- example
 SELECT * FROM Customers
 WHERE CustomerName LIKE '%a';
+
+-- SQL IN operator
+Syntax:
+select column_name(s)
+from table_name
+where column_name IN (value1, value2, ........);
+
+select column_name(s)
+from table_name
+where column_name in (select statement);
+-- example: The following SQL statement selects all customers that are located in "Germany", "France" or "UK":-
+select * from Customers
+where Country in ('Germany', 'France','UK');
+-- example: 
+select * from Customers
+where Country in (select Country from Suppliers) and City like '%sa%'
+order by Country asc;
+
+-- SQL BETWEEN Operator
+select column_name(s)
+from table_name
+where column_name between value1 and value2;
+-- example:
+select * from Products
+where Price not between 10 and 40;
+-- example: text between
+select * from Products
+where ProductName between 'Carnarvon Tigers' and 'Mozzarella di Giovanni'
+order by ProductName;
+
+-- SQL Aliases
+select column_name as alias_name
+from table_name;
+-- another is
+selet column_name
+from table_name as alias_name;
+-- example:
+select CustomerID as ID, CustomerName as [Contact Person], CONCAT(Address,', ',PostalCode,' ',City,', ',Country) as Address from Customers;
