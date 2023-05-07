@@ -308,3 +308,19 @@ where c.CustomerName='Around the Horn' and c.CustomerID = o.CustomerID;
 |LEFT (OUTER) JOIN|Returns all from that left table, and tha matched records from right table|
 | RIGHT (OUTER) JOIN |Returns all records from right table, and the matched records from the left table|
 | FULL (OUTER) JOIN | Returns all records when there is a match in either left or right table |
+
+#### inner join
+-- syntax
+```sql
+select column_name(s)
+from table1
+inner join table2
+on table1.column_name=table2.column_name;
+```
+example: 3 table join
+```sql
+SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
+FROM ((Orders
+INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
+INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
+```
