@@ -300,3 +300,11 @@ select o.OrderID, o.OrderDate, c.CustomerName
 from Customers AS c, Orders AS o
 where c.CustomerName='Around the Horn' and c.CustomerID = o.CustomerID;
 ```
+
+### SQL JOIN
+| **Keyword**  | **Description**  |
+|--------------|------------------|
+|(Inner) JOIN|Return records that have matching value in both tables|
+|LEFT (OUTER) JOIN|Returns all from that left table, and tha matched records from right table|
+| RIGHT (OUTER) JOIN |Returns all records from right table, and the matched records from the left table|
+| FULL (OUTER) JOIN | Returns all records when there is a match in either left or right table |
