@@ -137,3 +137,86 @@ UPDATE Customers
 SET ContactName='Juan'
 WHERE Country='Mexico';
 ```
+### SQL Delete
+```sql
+delete from table_name where condition;
+```
+Example:
+```sql
+DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
+```
+### SQL LIMIT
+```sql
+-- SQL limit
+select column_name(s)
+from table_name
+where condition
+limit number;
+```
+Example:
+```sql
+select * from Customers
+where City='Berlin'
+limit 3;
+```
+### SQL MIN() and MAX() Function
+#### SQL MIN()
+
+```sql
+select min(column_name)
+from table_name
+where condition;
+```
+example:
+```sql
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+```
+#### SQL MAX()
+```sql
+select max(column_name) as new_demo_table_name
+from table_name;
+```
+example:
+```sql
+select max(Price) as LargestPrice
+from Products;
+```
+
+### SQL COUNT(), AVG() and SUM() Functions
+#### SQL count()
+Systax:
+```sql
+select count(column_name)
+from table_name
+where condition;
+```
+example:
+```sql
+select count(ProductID)
+from Products;
+```
+#### SQL avg()
+Systax:
+```sql
+select avg(column_name)
+from table_name
+where condition;
+```
+example:
+```sql
+SELECT AVG(Price)
+FROM Products;
+```
+#### SQL sum()
+Systax:
+```sql
+select sum(column_name)
+from table_name
+where condition;
+```
+example:
+```sql
+select sum(Quantity)
+from OrderDetails;
+```
