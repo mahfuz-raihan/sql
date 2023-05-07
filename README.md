@@ -38,7 +38,7 @@ Example:
 select * from Customers
 where Country='Germany' and City='Berlin';
 ```
-#### OR systax
+#### OR syntax
 ```sql
 select column1, column2,...
 from table_name
@@ -49,7 +49,7 @@ Example:
 SELECT * FROM Customers
 WHERE City='Berlin' OR City='München';
 ```
-#### NOT systax
+#### NOT syntax
 ```sql
 select column1, column2,...
 from table_name
@@ -60,7 +60,7 @@ Example:
 SELECT * FROM Customers
 WHERE NOT Country='Sweden';
 ```
-Combination of these systax:
+Combination of these syntax:
 ```sql
 SELECT * FROM Customers
 WHERE NOT Country='Germany' AND NOT Country='USA';
@@ -93,7 +93,7 @@ INSERT INTO Customers (CustomerName, City, Country)
 VALUES ('Cardinal', 'Stavanger', 'Norway');
 ```
 ### NULL Values
-#### IS NULL systax
+#### IS NULL syntax
 ```sql
 SELECT column_names
 FROM table_name
@@ -119,7 +119,7 @@ WHERE Address IS NOT NULL;
 ```
 
 ### SQL UPDATE Statement
-Systax:
+syntax:
 ```sql
 UPDATE table_name
 SET column1 = value1, column2 = value2, ...
@@ -185,7 +185,7 @@ from Products;
 
 ### SQL COUNT(), AVG() and SUM() Functions
 #### SQL count()
-Systax:
+syntax:
 ```sql
 select count(column_name)
 from table_name
@@ -197,7 +197,7 @@ select count(ProductID)
 from Products;
 ```
 #### SQL avg()
-Systax:
+syntax:
 ```sql
 select avg(column_name)
 from table_name
@@ -209,7 +209,7 @@ SELECT AVG(Price)
 FROM Products;
 ```
 #### SQL sum()
-Systax:
+syntax:
 ```sql
 select sum(column_name)
 from table_name
@@ -221,7 +221,7 @@ select sum(Quantity)
 from OrderDetails;
 ```
 ### SQL LIKE Operator
-systax:
+syntax:
 ```sql
 select column1, column2,....
 from table_name
@@ -287,7 +287,7 @@ from table_name;
 ```
 another is
 ```sql
-selet column_name
+select column_name
 from table_name as alias_name;
 ```
 example:
