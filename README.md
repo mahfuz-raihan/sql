@@ -1,4 +1,4 @@
-# sql
+# SQL
 
 ```sql
 create table Student_Table(
@@ -219,4 +219,84 @@ example:
 ```sql
 select sum(Quantity)
 from OrderDetails;
+```
+### SQL LIKE Operator
+systax:
+```sql
+select column1, column2,....
+from table_name
+where column like pattern;
+```
+example: 
+- The following SQL statement selects all customers with a CustomerName ending with "a":
+```sql
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a';
+```
+- The following SQL statement selects all customers with a CustomerName that have "t" in the second position:
+```sql
+SELECT * FROM Customers
+WHERE CustomerName LIKE '_r%';
+```
+### SQL IN operator
+Syntax:
+```sql
+select column_name(s)
+from table_name
+where column_name IN (value1, value2, ........);
+```
+```sql
+select column_name(s)
+from table_name
+where column_name in (select statement);
+```
+example: The following SQL statement selects all customers that are located in "Germany", "France" or "UK":-
+```sql
+select * from Customers
+where Country in ('Germany', 'France','UK');
+```
+example: 
+```
+select * from Customers
+where Country in (select Country from Suppliers) and City like '%sa%'
+order by Country asc;
+```
+### SQL BETWEEN Operator
+Syntax:
+```sql
+select column_name(s)
+from table_name
+where column_name between value1 and value2;
+```
+example:
+```sql
+select * from Products
+where Price not between 10 and 40;
+```
+example: text between
+```sql
+select * from Products
+where ProductName between 'Carnarvon Tigers' and 'Mozzarella di Giovanni'
+order by ProductName;
+```
+### SQL Aliases
+Syntax:
+```sql
+select column_name as alias_name
+from table_name;
+```
+another is
+```sql
+selet column_name
+from table_name as alias_name;
+```
+example:
+```sql
+select CustomerID as ID, CustomerName as [Contact Person], CONCAT(Address,', ',PostalCode,' ',City,', ',Country) as Address from Customers;
+```
+Alias for Tables Example:
+```sql
+select o.OrderID, o.OrderDate, c.CustomerName
+from Customers AS c, Orders AS o
+where c.CustomerName='Around the Horn' and c.CustomerID = o.CustomerID;
 ```
