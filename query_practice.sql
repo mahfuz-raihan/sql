@@ -56,3 +56,39 @@ order by column1, column2 ASC|DESC;
 -- example
 SELECT * FROM Customers
 ORDER BY Country;
+
+-- SQL TOP, limit, fetch first or rownum
+
+-- SQL limit
+select column_name(s)
+from table_name
+where condition
+limit number;
+-- example
+select * from Customers
+where City='Berlin'
+limit 3;
+
+-- SQL MIN() and MAX()
+-- SQL MIN()
+select min(column_name)
+from table_name
+where condition;
+-- example
+SELECT MIN(Price) AS SmallestPrice
+FROM Products;
+
+-- SQL MAX()
+select max(column_name) as new_demo_table_name
+from table_name;
+-- example
+select max(Price) as LargestPrice
+from Products;
+
+-- SQL LIKE Operator
+select column1, column2,....
+from table_name
+where column like pattern;
+-- example
+SELECT * FROM Customers
+WHERE CustomerName LIKE '%a';
