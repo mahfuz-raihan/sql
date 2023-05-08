@@ -324,3 +324,47 @@ FROM ((Orders
 INNER JOIN Customers ON Orders.CustomerID = Customers.CustomerID)
 INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 ```
+
+#### Left join
+```sql
+select column_name(s)
+from table1
+left join table2
+on table1.column_name=table2.column_name;
+```
+example:
+```sql
+select Customers.CustomerID, Customers.CustomerName, Orders.OrderID, Orders.OrderDate
+from Customers
+left join Orders
+on Customers.CustomerID=Orders.CustomerID;
+```
+#### Right join
+```sql
+select column_name(s)
+from table1
+right join table2 on
+table1.column_name=table2.column_name;
+```
+example: 
+```sql
+select Orders.EmployeeID, Orders.OrderID, Orders.OrderDate, Orders.ShipperID
+from Orders
+left join Employees on
+Orders.EmployeeID=Employees.EmployeeID;
+```
+#### full join
+```sql
+select column_name(s)
+from table1
+full outer join table2
+on table1.column_name=table2.column_name
+where conditon;
+```
+example:
+```sql
+select Customers.CustomerName, Orders.OrderID
+from Customers
+full outer join Orders on Customers.CustomerID=Orders.CustomerID
+order by Customers.CustomerName;
+```
