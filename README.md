@@ -368,3 +368,80 @@ from Customers
 full outer join Orders on Customers.CustomerID=Orders.CustomerID
 order by Customers.CustomerName;
 ```
+### SQL Union operator
+- syntax:
+```sql
+select column_name(s) from table1
+union
+select column_name(s) from table2;
+```
+- example:
+```sql
+select City, Country from Customers
+where Country='Germany'
+union all
+select City, Country from Suppliers
+where Country='Germany'
+order by City;
+```
+### SQL group by Statement
+- syntax:
+```sql
+select column_name(s),.....
+from table_name
+where condition
+group by column_name(s),.....
+order by column_name(s),.....
+```
+- example:
+```sql
+select Country, count(CustomerID) as [Customer Name]
+from Customers
+group by Country
+order by count(CustomerID) desc;
+```
+- Group by with join example
+```sql
+select Shippers.ShipperName, count(Orders.OrderID) as ['Number of Order'] from Orders
+left join Shippers on Orders.ShipperID=Shippers.ShipperID
+group by ShipperName;
+```
+
+## SQL Having clause
+- syntax:
+```sql
+select column_name(s),.....
+from table_name
+where condition
+group by column_name(s),.....
+having condition
+order by column_name(s),....... 
+```
+- example: lists the number of customers in each country. 
+Only include countries with more than 5 customers, order by Customer.
+```sql
+select Country, count(CustomerID)
+from Customers
+group by Country
+having count(CustomerID) > 5
+order by count(CustomerID) desc;
+```
+- example:lists the employees that have  registered more than 10 orders:
+```sql
+select Employees.LastName, count(Orders.OrderID) as [Number of Order]
+from (orders
+inner join Employees on Orders.EmployeeID=Employees.EmployeeID)
+group by LastName
+having count(Orders.OrderID) >= 20
+order by count(Orders.OrderID) desc;
+```
+- example:
+```sql
+select Employees.LastName, count(Orders.OrderID) as [Number of Order]
+from (orders
+inner join Employees on Orders.EmployeeID=Employees.EmployeeID)
+where LastName='Davolio' or LastName='Fuller'
+group by LastName
+having count(Orders.OrderID) >= 20
+order by count(Orders.OrderID) desc;
+```
