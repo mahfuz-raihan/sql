@@ -131,3 +131,39 @@ from table_name as alias_name;
 -- example:
 select CustomerID as ID, CustomerName as [Contact Person], CONCAT(Address,', ',PostalCode,' ',City,', ',Country) as Address from Customers;
 
+-- SQL Having clause
+-- syntax:
+select column_name(s),.....
+from table_name
+where condition
+group by column_name(s),.....
+having condition
+order by column_name(s),....... 
+
+-- example: 
+/*lists the number of customers in each country. 
+Only include countries with more than 5 customers, order by Customer*/
+select Country, count(CustomerID)
+from Customers
+group by Country
+having count(CustomerID) > 5
+order by count(CustomerID) desc;
+
+-- example:
+/*lists the employees that have 
+registered more than 10 orders:*/
+select Employees.LastName, count(Orders.OrderID) as [Number of Order]
+from (orders
+inner join Employees on Orders.EmployeeID=Employees.EmployeeID)
+group by LastName
+having count(Orders.OrderID) >= 20
+order by count(Orders.OrderID) desc;
+
+-- example:
+select Employees.LastName, count(Orders.OrderID) as [Number of Order]
+from (orders
+inner join Employees on Orders.EmployeeID=Employees.EmployeeID)
+where LastName='Davolio' or LastName='Fuller'
+group by LastName
+having count(Orders.OrderID) >= 20
+order by count(Orders.OrderID) desc;
