@@ -1,5 +1,5 @@
 # SQL
-#### Create a table:
+### Create a table:
 - syntax:
 ```sql
 create table table_name(
@@ -24,7 +24,7 @@ another:
 INSERT INTO Customers (CustomerName, City, Country)
 VALUES ('Cardinal', 'Stavanger', 'Norway');
 ```
-#### sql select statement
+### sql select statement
 - syntax:
 ```sql
 select column1, column2
@@ -35,13 +35,13 @@ from table_name;
 select CustomerName, ContactName, Country
 from Customers;
 ```
-#### sql distict statement
+### sql distict statement
 - syntax:
 ```sql
 select distinct column
 from table_name;
 ```
-### sql WHERE statement (condition apply)
+### SQL WHERE statement (condition apply)
 - syntax:
 ```sql
 select column1, column2
@@ -325,7 +325,7 @@ where c.CustomerName='Around the Horn' and c.CustomerID = o.CustomerID;
 | RIGHT (OUTER) JOIN |Returns all records from right table, and the matched records from the left table|
 | FULL (OUTER) JOIN | Returns all records when there is a match in either left or right table |
 
-#### inner join
+#### Inner join
 - syntax
 ```sql
 select column_name(s)
@@ -371,7 +371,7 @@ from Orders
 left join Employees on
 Orders.EmployeeID=Employees.EmployeeID;
 ```
-#### full join
+#### Full join
 - syntax:
 ```sql
 select column_name(s)
