@@ -1,81 +1,13 @@
 # SQL
-
+#### Create a table:
+- syntax:
 ```sql
-create table Student_Table(
-	Id int not null ,
-	Name varchar(255) not null,
-	Class_id int not null
+create table table_name(
+	column_name datatype(int) not null ,
+	column_name2 datatype(varchar(255)) not null,
+	column_name3 datatype(int) not null
+	...................
 );
-
-/*insert into Student_Table values (01, 'John', 301);*/
-
-create table Class_Table(
-	Id int not null,
-	Name varchar(255) not null,
-);
-
-
--- insert into Class_Table values (301, 'Database');
-
-
-
-select Class_Table.Name as Class, count(Student_Table.Id) as 'Number of Student', 
-from Class_Table
-left join Student_table 
-on Class_Table.Id = Student_Table.Class_id
-group by Class;
-
-```
-### SQL AND, OR and NOT Operators
-#### AND Syntax
-```sql
-select column1, column2,...
-from table_name
-where condition1 AND condition2 AND condition3;
-```
-Example:
-```sql
-select * from Customers
-where Country='Germany' and City='Berlin';
-```
-#### OR syntax
-```sql
-select column1, column2,...
-from table_name
-where condition1 OR condition2 OR condition3;
-```
-Example:
-```sql
-SELECT * FROM Customers
-WHERE City='Berlin' OR City='München';
-```
-#### NOT syntax
-```sql
-select column1, column2,...
-from table_name
-where NOT condition1;
-```
-Example:
-```sql
-SELECT * FROM Customers
-WHERE NOT Country='Sweden';
-```
-Combination of these syntax:
-```sql
-SELECT * FROM Customers
-WHERE NOT Country='Germany' AND NOT Country='USA';
-```
-### The SQL ORDER BY Keyword
-
-```sql
-select column1, column2,...
-from table_name
-order by column1, column2... ASC|DESC;
-```
-Example:
-```sql
-SELECT * FROM Customers
-ORDER BY Country;
 ```
 ### SQL INSERT INTO Statement
 ```sql
@@ -92,26 +24,107 @@ another:
 INSERT INTO Customers (CustomerName, City, Country)
 VALUES ('Cardinal', 'Stavanger', 'Norway');
 ```
+#### sql select statement
+- syntax:
+```sql
+select column1, column2
+from table_name;
+```
+- example:
+```sql
+select CustomerName, ContactName, Country
+from Customers;
+```
+#### sql distict statement
+- syntax:
+```sql
+select distinct column
+from table_name;
+```
+### sql WHERE statement (condition apply)
+- syntax:
+```sql
+select column1, column2
+from table_name
+where condition;
+```
+### SQL AND, OR and NOT Operators
+#### AND Syntax
+- syntax
+```sql
+select column1, column2,...
+from table_name
+where condition1 AND condition2 AND condition3;
+```
+- Example:
+```sql
+select * from Customers
+where Country='Germany' and City='Berlin';
+```
+#### OR syntax
+- syntax:
+```sql
+select column1, column2,...
+from table_name
+where condition1 OR condition2 OR condition3;
+```
+- Example:
+```sql
+SELECT * FROM Customers
+WHERE City='Berlin' OR City='München';
+```
+#### NOT syntax
+- syntax:
+```sql
+select column1, column2,...
+from table_name
+where NOT condition1;
+```
+- Example:
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Sweden';
+```
+Combination of these syntax:
+```sql
+SELECT * FROM Customers
+WHERE NOT Country='Germany' AND NOT Country='USA';
+```
+### The SQL ORDER BY Keyword
+- syntax:
+```sql
+select column1, column2,...
+from table_name
+order by column1, column2... ASC|DESC;
+```
+- Example:
+```sql
+SELECT * FROM Customers
+ORDER BY Country;
+```
+
 ### NULL Values
 #### IS NULL syntax
+- syntax:
 ```sql
 SELECT column_names
 FROM table_name
 WHERE column_name IS NULL;
 ```
-Example:
+- Example:
 ```sql
 SELECT CustomerName, ContactName, Address
 FROM Customers
 WHERE Address IS NULL;
 ```
 #### IS NOT NULL
+- syntax:
 ```sql
 SELECT column_names
 FROM table_name
 WHERE column_name IS NOT NULL;
 ```
-Example:
+- Example:
 ```sql
 SELECT CustomerName, ContactName, Address
 FROM Customers
@@ -119,13 +132,13 @@ WHERE Address IS NOT NULL;
 ```
 
 ### SQL UPDATE Statement
-syntax:
+- syntax:
 ```sql
 UPDATE table_name
 SET column1 = value1, column2 = value2, ...
 WHERE condition;
 ```
-Example:
+- Example:
 ```sql
 UPDATE Customers
 SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
@@ -138,22 +151,23 @@ SET ContactName='Juan'
 WHERE Country='Mexico';
 ```
 ### SQL Delete
+- syntax:
 ```sql
 delete from table_name where condition;
 ```
-Example:
+- Example:
 ```sql
 DELETE FROM Customers WHERE CustomerName='Alfreds Futterkiste';
 ```
 ### SQL LIMIT
+- syntax:
 ```sql
--- SQL limit
 select column_name(s)
 from table_name
 where condition
 limit number;
 ```
-Example:
+- Example:
 ```sql
 select * from Customers
 where City='Berlin'
@@ -161,23 +175,24 @@ limit 3;
 ```
 ### SQL MIN() and MAX() Function
 #### SQL MIN()
-
+- syntax:
 ```sql
 select min(column_name)
 from table_name
 where condition;
 ```
-example:
+- example:
 ```sql
 SELECT MIN(Price) AS SmallestPrice
 FROM Products;
 ```
 #### SQL MAX()
+- syntax:
 ```sql
 select max(column_name) as new_demo_table_name
 from table_name;
 ```
-example:
+- example:
 ```sql
 select max(Price) as LargestPrice
 from Products;
@@ -185,49 +200,49 @@ from Products;
 
 ### SQL COUNT(), AVG() and SUM() Functions
 #### SQL count()
-syntax:
+- syntax:
 ```sql
 select count(column_name)
 from table_name
 where condition;
 ```
-example:
+- example:
 ```sql
 select count(ProductID)
 from Products;
 ```
 #### SQL avg()
-syntax:
+- syntax:
 ```sql
 select avg(column_name)
 from table_name
 where condition;
 ```
-example:
+- example:
 ```sql
 SELECT AVG(Price)
 FROM Products;
 ```
 #### SQL sum()
-syntax:
+- syntax:
 ```sql
 select sum(column_name)
 from table_name
 where condition;
 ```
-example:
+- example:
 ```sql
 select sum(Quantity)
 from OrderDetails;
 ```
 ### SQL LIKE Operator
-syntax:
+- syntax:
 ```sql
 select column1, column2,....
 from table_name
 where column like pattern;
 ```
-example: 
+- example: 
 - The following SQL statement selects all customers with a CustomerName ending with "a":
 ```sql
 SELECT * FROM Customers
@@ -239,58 +254,59 @@ SELECT * FROM Customers
 WHERE CustomerName LIKE '_r%';
 ```
 ### SQL IN operator
-Syntax:
+- Syntax:
 ```sql
 select column_name(s)
 from table_name
 where column_name IN (value1, value2, ........);
 ```
+another is :
 ```sql
 select column_name(s)
 from table_name
 where column_name in (select statement);
 ```
-example: The following SQL statement selects all customers that are located in "Germany", "France" or "UK":-
+- example: The following SQL statement selects all customers that are located in "Germany", "France" or "UK":-
 ```sql
 select * from Customers
 where Country in ('Germany', 'France','UK');
 ```
-example: 
+- example: 
 ```
 select * from Customers
 where Country in (select Country from Suppliers) and City like '%sa%'
 order by Country asc;
 ```
 ### SQL BETWEEN Operator
-Syntax:
+- Syntax:
 ```sql
 select column_name(s)
 from table_name
 where column_name between value1 and value2;
 ```
-example:
+- example:
 ```sql
 select * from Products
 where Price not between 10 and 40;
 ```
-example: text between
+- example: text between
 ```sql
 select * from Products
 where ProductName between 'Carnarvon Tigers' and 'Mozzarella di Giovanni'
 order by ProductName;
 ```
 ### SQL Aliases
-Syntax:
+- Syntax:
 ```sql
 select column_name as alias_name
 from table_name;
 ```
-another is
+- another is
 ```sql
 select column_name
 from table_name as alias_name;
 ```
-example:
+- example:
 ```sql
 select CustomerID as ID, CustomerName as [Contact Person], CONCAT(Address,', ',PostalCode,' ',City,', ',Country) as Address from Customers;
 ```
@@ -310,14 +326,14 @@ where c.CustomerName='Around the Horn' and c.CustomerID = o.CustomerID;
 | FULL (OUTER) JOIN | Returns all records when there is a match in either left or right table |
 
 #### inner join
--- syntax
+- syntax
 ```sql
 select column_name(s)
 from table1
 inner join table2
 on table1.column_name=table2.column_name;
 ```
-example: 3 table join
+- example: 3 table join
 ```sql
 SELECT Orders.OrderID, Customers.CustomerName, Shippers.ShipperName
 FROM ((Orders
@@ -326,13 +342,14 @@ INNER JOIN Shippers ON Orders.ShipperID = Shippers.ShipperID);
 ```
 
 #### Left join
+- syntax:
 ```sql
 select column_name(s)
 from table1
 left join table2
 on table1.column_name=table2.column_name;
 ```
-example:
+- example:
 ```sql
 select Customers.CustomerID, Customers.CustomerName, Orders.OrderID, Orders.OrderDate
 from Customers
@@ -340,13 +357,14 @@ left join Orders
 on Customers.CustomerID=Orders.CustomerID;
 ```
 #### Right join
+- syntax:
 ```sql
 select column_name(s)
 from table1
 right join table2 on
 table1.column_name=table2.column_name;
 ```
-example: 
+- example: 
 ```sql
 select Orders.EmployeeID, Orders.OrderID, Orders.OrderDate, Orders.ShipperID
 from Orders
@@ -354,6 +372,7 @@ left join Employees on
 Orders.EmployeeID=Employees.EmployeeID;
 ```
 #### full join
+- syntax:
 ```sql
 select column_name(s)
 from table1
@@ -361,7 +380,7 @@ full outer join table2
 on table1.column_name=table2.column_name
 where conditon;
 ```
-example:
+- example:
 ```sql
 select Customers.CustomerName, Orders.OrderID
 from Customers
